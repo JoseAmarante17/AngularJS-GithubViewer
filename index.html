@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<!--
+    STEP 1) Link Angular and type ng-app. Only one ng-app per html page
+    ng-app will only affect the tag it is in and not outside of that
+-->
+<html lang="en" ng-app="myApp">
 
 <head>
     <meta charset="UTF-8">
@@ -8,15 +11,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular</title>
 
-    <!--ANUGLAR JS SCRIPT LINK ,JS LINK ,AND CSS LINK-->
-    <script src="scripts/script.js"></script>
+    <!--ANUGLAR JS SCRIPT LINK,AND CSS LINK-->
     <link rel="stylesheet" href="stylesheet/style.css">
-    <script src="C:\Users\Gnete educada\Desktop\angular-1.8.2\angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body>
-    <h1>HELLO ANGULAR WORLD</h1>
+    <div ng-controller="MainCtrl">
+        <h1>HELLO ANGULAR WORLD</h1>
+        <!--BINDING EXPRESSION-->  
+        <p>
+            {{ass}}
+            {{message.length}}
+            {{papi.price}}
+        </p>
+    </div>
 
+    <div ng-controller="PersonCtrl">
+        <h1>FIRST NAME : {{person.fname}} {{person.lname}}</h1>
+        <!--ng-src Sets the source of the image when there is a binding expression  -->
+        <img ng-src="{{person.imageSrc}}" title="{{person.fname}} {{person.lname}}">
+    </div>
+
+    <!--RETRIEVE FROM SERVER-->
+    <div ng-controller = "Github">
+        <h1>{{error}}</h1>
+        <h1>{{user.login}}'s Information</h1>
+        <p>
+            <ul>
+                <li>Name: {{user.name}}</li>
+                <li>BIO: {{user.bio}}</li>
+                <li>Followers : {{user.followers}}</li>
+                <li>Following : {{user.following}}</li>
+                <li>Repo Amount : {{user.public_repos}}</li>
+                <li>Profile Pic: <img ng-src = {{user.avatar_url}}></li>
+            </ul>
+        </p>
+    </div>
+
+    
 </body>
+<!--JS SCRIPT-->
+<script src="scripts/script.js"></script>
 
 </html>
