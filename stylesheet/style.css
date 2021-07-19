@@ -1,0 +1,123 @@
+.title h1 {
+    text-align : center;
+    color      : #654596;
+    font-weight: bold;
+}
+
+.title p {
+    text-align: center;
+}
+
+#form {
+    text-align: center;
+}
+
+
+
+
+/*NAVBAR*/
+
+.img-responsive {
+    height: 25% !important;
+}
+
+.navbar {
+    background: #654596;
+}
+
+.nav-link,
+.navbar-brand {
+    color : #fff;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+    font-size   : 1.55em;
+}
+
+.nav-link:hover {
+    color      : rgb(238, 183, 137);
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 1.25em;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+/*
+    USER INFO
+*/
+.userinfo {
+    margin-left : 20%;
+    margin-right: 20%;
+}
+
+.name {
+    text-align: center;
+    margin-top: 5%;
+    padding   : 10px;
+}
+
+#profile {
+    border          : 10px;
+    background-color: white;
+    padding         : 5px;
+}
+
+ul li {
+    list-style-type: none;
+    margin-bottom: 1%;
+}
+ul{
+    padding-bottom: 3%;
+}
+
+
+.userinfo {
+    background-color: #654596;
+    color: white;
+}
+
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: white;
+    font-weight: bold;
+}
+
+
+table tr th {
+    color      : #654596;
+    font-weight: bold;
+    
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*
+    FOOTER
+*/
+
+
+footer {
+    text-align: center;
+}
+
+footer h2 {
+    color     : #654596;
+    font-style: italic;
+    margin    : 1%;
+}

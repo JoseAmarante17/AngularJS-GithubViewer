@@ -1,0 +1,44 @@
+<head>
+    <link rel="stylesheet" href="stylesheet/style.css">
+</head>
+<div class="userinfo">
+    <div class="name">
+        <h1>{{error}}</h1>
+        <h1>{{username}}'s Information</h1>
+    </div>
+
+    <ul>
+        <li>Profile Pic: <img ng-src={{user.avatar_url}} width="100" height="100" id="profile"></li>
+        <li>Name: {{user.name}}</li>
+        <li>BIO: {{user.bio}}</li>
+        <li>Company : {{user.company}}</li>
+        <li>Twitter : {{user.twitter_username}}</li>
+        <li>Followers : {{user.followers}}</li>
+        <li>Following : {{user.following}}</li>
+        <li>Repo Amount : {{user.public_repos}}</li>
+        <li>Github URL : <a href="{{user.html_url}}">{{user.html_url}}</a></li>
+    </ul>
+
+</div>
+
+<div class="table" id="center">
+    <table>
+        <thead>
+            <tr>
+                <th>Repository Name</th>
+                <th>Stars</th>
+                <th>Main Language Used</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--SIMILAR TO PYTHON WHERE REPO IS INITALIZED IN EXPRESSION REPOINFO REPRESENTS the information gethered-->
+            <tr ng-repeat="repo in repoInfo">
+                <td>{{repo.name}}</td>
+                <td>{{repo.stargazers_count}}</td>
+                <td>{{repo.language}}</td>
+                <td>{{repo.created_at}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

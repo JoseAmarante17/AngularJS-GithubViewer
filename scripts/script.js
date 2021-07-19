@@ -17,44 +17,49 @@ app.controller("NAME OF CONTROLLER", function(scope)
 */
 
 app.controller("MainCtrl", function ($scope) {
-    $scope.message = "Hello";
-    $scope.ass = "Eat my ass ZADDY";
+    $scope.title = "Github Viewer"
 
 });
 
-app.controller("PersonCtrl", function ($scope) {
-
-    // Defining an object
-    // it is currently only available withing the function
-    const love = {
-        fname: "Yira",
-        lname: "Bethany",
-        imageSrc: "https://cdn.pixabay.com/photo/2019/09/17/20/47/prague-4484517__340.jpg"
-    };
-
-    // Now we can reference it using binding expressions
-    $scope.person = love;
-
-});
 
 app.controller("Github", function ($scope, $http) {
 
-    // get request from a secured socket
-    let promise = $http.get("https://api.github.com/users/JoseAmarante17");
+    //Function to search and username is passed from model created in html
+    $scope.search = function (username) {
+        // get request from a secured socket
+        let promise = $http.get("https://api.github.com/users/" + username);
 
+        promise.then(
+            // If it is valid
+            function (response) {
+                // create object from api call
+                $scope.user = response.data;
+                $scope.error = "";
+            },
 
-    promise.then(
-        // If it is valid
-        function (response) {
-            // create object from api call
-            $scope.user = response.data;
-        },
+            // if it is not valid
+            function (reason) {
+                $scope.error = "Could not connect";
+            }
+        );
 
-        // if it is not valid
-        function (reason) {
-            $scope.error = "Could not connect";
-        }
-    );
+        // Retrieves Repo information
+        let repo = $http.get("https://api.github.com/users/" + username + "/repos")
+
+        repo.then(
+             // If it is valid
+             function (response) {
+                // create object from api call
+                $scope.repoInfo = response.data;
+            },
+
+            // if it is not valid
+            function (reason) {
+                $scope.error = "Could not connect";
+            }
+        );
+
+    };
 
 });
 
